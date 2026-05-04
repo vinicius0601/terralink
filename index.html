@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terra Link Locações | Internet via Starlink para Eventos</title>
+	
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+	
+    <style>
+        /* Paleta de cores baseada no logotipo */
+        :root {
+            --primary-dark: #192426; /* Cor escura do texto TERRA LINK */
+            --accent-copper: #BD8761; /* Cor do detalhe da antena e linha */
+            --light-bg: #F9F9F9;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--primary-dark);
+            line-height: 1.6;
+        }
+
+        /* Cabecalho */
+        header {
+            background-color: var(--white);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo img {
+            max-height: 120px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary-dark);
+            font-weight: bold;
+            margin-left: 30px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-copper);
+        }
+
+        /* Botão de Destaque */
+        .btn {
+            background-color: var(--accent-copper);
+            color: var(--white);
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background 0.3s, transform 0.2s;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #A3704C;
+            transform: translateY(-2px);
+        }
+
+        /* Seção Hero (Principal) */
+        .hero {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 120px 5%;
+            text-align: center;
+            background-image: linear-gradient(rgba(25, 36, 38, 0.9), rgba(25, 36, 38, 0.9)), url('https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2069&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 span {
+			display: block; /* Força a quebra de linha automática */
+			margin-top: 15px; /* Opcional: cria um espaçamento harmônico entre as frases */
+            color: var(--accent-copper);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            color: #E0E0E0;
+        }
+
+        /* Seção de Serviços */
+        .services {
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        .services h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            max-width: 320px;
+            border-bottom: 5px solid var(--accent-copper);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        .card p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+		/* Seção Roadmap (Inspirada no Hackers do Bem) */
+        .roadmap {
+            padding: 80px 5%;
+        }
+
+        .roadmap-title { text-align: center; margin-bottom: 60px; }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            position: relative;
+        }
+
+        .step {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 4px;
+            border-left: 4px solid var(--accent-copper);
+            position: relative;
+        }
+
+        .step-number {
+            position: absolute;
+            top: -20px; right: 20px;
+            font-size: 3rem;
+            font-weight: 800;
+            color: rgba(189, 135, 97, 0.1);
+        }
+
+        /* Seção de Urgência / Banner */
+        .urgency-banner {
+            background-color: var(--accent-copper);
+            color: var(--white);
+            text-align: center;
+            padding: 60px 5%;
+        }
+
+        .urgency-banner h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 5%;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+            color: #AAA;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 20px; }
+            nav a { margin: 0 10px; }
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+	<div class="grid-overlay"></div>
+
+    <!-- Cabeçalho -->
+    <header>
+        <div class="logo">
+            <!-- Coloque o arquivo logo.jpg na mesma pasta deste arquivo HTML -->
+            <img src="logo.jpg" alt="Terra Link Locações - Logotipo">
+        </div>
+        <nav>
+            <a href="#sobre">Sobre</a>
+            <a href="#eventos">Eventos</a>
+            <a href="#vantagens">Vantagens</a>
+        </nav>
+        <a href="https://wa.me/5543999999999" target="_blank" class="btn">Solicitar Orçamento</a>
+    </header>
+
+    <!-- Seção Principal (Hero) -->
+    <section class="hero">
+        <h1>Conexão impecável para o seu evento. <span>Onde quer que ele seja.</span></h1>
+        <p>A Terra Link Locações fornece internet de alta velocidade e baixa latência via Starlink para feiras, festas e exposições. Não deixe seu evento offline.</p>
+        <a href="https://wa.me/5543999999999" target="_blank" class="btn">Consultar Disponibilidade de Data</a>
+    </section>
+
+    <!-- Seção de Aplicações (Eventos) -->
+    <section id="eventos" class="services">
+        <h2>Conectividade para todos os formatos</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Feiras e Congressos</h3>
+                <p>Garanta que expositores tenham internet estável para credenciamento, sistemas de vendas e maquininhas de cartão sem interrupções.</p>
+            </div>
+            <div class="card">
+                <h3>Festas e Casamentos</h3>
+                <p>Eventos no campo, chácaras ou locais remotos? Ofereça Wi-Fi de alta qualidade para que seus convidados compartilhem cada momento.</p>
+            </div>
+            <div class="card">
+                <h3>Exposições Abertas</h3>
+                <p>Infraestrutura tecnológica rápida de montar. Sinal limpo e potente mesmo em áreas sem cobertura de fibra óptica convencional.</p>
+            </div>
+        </div>
+    </section>
+	
+	<section class="roadmap">
+        <div class="roadmap-title">
+            <h2>O Caminho para o Evento Online</h2>
+            <p>Jornada de implementação rápida em 3 etapas</p>
+        </div>
+        <div class="steps-container">
+            <div class="step" data-aos="fade-right">
+                <div class="step-number">01</div>
+                <h3>Análise de Local</h3>
+                <p>Verificamos o local e as coordenadas para garantir 100% de visibilidade com o satélite.</p>
+            </div>
+            <div class="step" data-aos="fade-right" data-aos-delay="200">
+                <div class="step-number">02</div>
+                <h3>Setup Técnico</h3>
+                <p>Instalação e configuração dos equipamentos deixando a internet pronta para uso.</p>
+            </div>
+            <div class="step" data-aos="fade-right" data-aos-delay="400">
+                <div class="step-number">03</div>
+                <h3>Monitoramento</h3>
+                <p>Nossa equipe garante latência baixa durante toda a duração do evento.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner de Urgência Comercial -->
+    <section class="urgency-banner">
+        <h2>Atenção: Equipamentos limitados!</h2>
+        <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto 30px auto;">
+            A alta demanda por internet via satélite faz com que nossa agenda seja preenchida rapidamente. Garanta a estrutura de telecomunicações do seu evento hoje mesmo.
+        </p>
+        <a href="https://wa.me/5543999999999" target="_blank" class="btn" style="background-color: var(--primary-dark);">Reservar Minha Antena Agora</a>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <p><strong>TERRA LINK LOCAÇÕES</strong> | Internet via Starlink para Eventos</p>
+        <p>Atendimento especializado em engenharia de telecomunicações para Londrina e região.</p>
+        <p>&copy; 2026 Terra Link Locações. Todos os direitos reservados.</p>
+    </footer>
+
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init();</script>
+</body>
+</html>
